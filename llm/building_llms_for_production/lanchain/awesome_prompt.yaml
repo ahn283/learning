@@ -1,0 +1,16 @@
+_type: prompt
+input_variables:
+- query
+metadata: null
+name: null
+optional_variables: []
+output_parser: null
+partial_variables: {}
+tags: null
+template: "Answer the question based on the context below.\nIf the question cannot\
+  \ be answered using the information provided, answer with \"I don't know\". \nContext:\
+  \ Quantum conputing is an emerging field that leverages quantum mechanics to solve\
+  \ complex problems faster than classical computers.\n...  \nQuestion: {query}\n\
+  Answer:"
+template_format: f-string
+validate_template: false
