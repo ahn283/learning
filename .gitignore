@@ -6,3 +6,4 @@ llm/building_llms_for_production/rag/lecunninterview.mp4
 llm/building_llms_for_production/rag/temp
 /recommendation/chapter3/logs
 llm/agent/agent
+llm/agent/rag_with_agent/vectorstore
