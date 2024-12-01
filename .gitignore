@@ -7,3 +7,4 @@ llm/building_llms_for_production/rag/temp
 /recommendation/chapter3/logs
 llm/agent/agent
 llm/agent/rag_with_agent/vectorstore
+llm/agent/projects/report_한국_출산율.docx
