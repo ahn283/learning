@@ -1,16 +1,13 @@
-from tools import get_tools
+from utils.tools import get_tools
 from langgraph.graph import MessagesState
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from datetime import datetime
-import keyring
-
-OPENAI_API_KEY = keyring.get_password('openai', 'key_for_windows')
+import os
 
 llm = ChatOpenAI(
-    model='gpt-4o',
-    api_key=OPENAI_API_KEY
-)
+    model="gpt-4o", 
+    api_key=os.getenv("OPENAI_API_KEY"))
 
 def get_system_prompt(docs_info=None):
     system_prompt = f"""

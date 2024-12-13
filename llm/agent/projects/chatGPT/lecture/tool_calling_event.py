@@ -6,7 +6,7 @@ from PIL import Image
 import base64
 from langsmith import traceable
 
-async def invoke_our_graph(state, st_placeholder, graph):       # add graph parameters
+async def invoke_our_graph(state, st_placeholder, graph):  # graph 매개변수 추가
     container = st_placeholder
     thoughts_placeholder = container.container()
     token_placeholder = container.empty()
@@ -21,7 +21,7 @@ async def invoke_our_graph(state, st_placeholder, graph):       # add graph para
                 final_text += addition
                 if addition:
                     token_placeholder.write(final_text)
-                    
+
             elif kind == "on_tool_start":
                 with thoughts_placeholder:
                     status_placeholder = st.empty()
@@ -40,7 +40,7 @@ async def invoke_our_graph(state, st_placeholder, graph):       # add graph para
                         st.write("도구 출력값:")
                         output_placeholder = st.empty()
                         s.update(label="도구 호출을 완료했어요!", expanded=False)
-                        
+
             elif kind == "on_tool_end":
                 with thoughts_placeholder:
                     if 'output_placeholder' in locals():
@@ -51,22 +51,19 @@ async def invoke_our_graph(state, st_placeholder, graph):       # add graph para
                             tool_output = tool_output.content
                         
                         output_placeholder.code(tool_output)
-                        
+
                         if event['name'] in ['data_visualization', 'generate_image']:
                             try:
                                 if tool_output.startswith("data:image/png;base64,"):
-                                    char = tool_output.split(",")[1]
-                                    final_text += f"\n![Generated Chart]({char})\n"
+                                    final_text += f"\n![Generated Chart]({tool_output.split(",")[1]})\n"                              
                                 elif tool_output.split(",")[1].startswith("http"):
                                     with st.spinner():
-                                        char = tool_output.split(",")[1]
-                                        final_text += f"\n![Generated Image]({char})"
+                                        final_text += f"\n![Generated Image]({tool_output.split(",")[1]})\n"
                                 else:
                                     st.error(tool_output)
                             except Exception as e:
                                 st.error(f"Error displaying image: {str(e)}")
+    except RecursionError as e:
+        raise  # 상위 레벨에서 처리하도록 예외를 다시 발생시킵니다.
 
-    except Exception as e:
-        raise       # 상위 레벨에서 처리하도록 예외를 다시 발생시킵니다.
-    
     return final_text
