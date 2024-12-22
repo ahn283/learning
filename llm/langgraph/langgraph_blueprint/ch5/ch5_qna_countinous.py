@@ -44,3 +44,6 @@ def interact_with_agent():
 
 # Start interacting with the agent
 interact_with_agent()
+
+# Visulaize the graph
+display_graph(app)
