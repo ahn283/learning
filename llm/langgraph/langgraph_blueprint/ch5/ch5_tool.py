@@ -53,6 +53,9 @@ workflow.add_edge('call_llm', END)
 # Compile the workflow
 app = workflow.compile()
 
+# Visualize the Graph
+display_graph(app)
+
 # Function to continuously take user input and decide between LLM and tool calls
 def interact_with_agent():
     while True:
@@ -68,4 +71,3 @@ def interact_with_agent():
 
 # Start interacting with the agent
 interact_with_agent()
-
