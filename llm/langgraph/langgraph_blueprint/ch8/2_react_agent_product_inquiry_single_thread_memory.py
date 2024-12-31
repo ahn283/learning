@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import create_react_agent
 import keyring
 from langgraph.checkpoint.memory import MemorySaver
+from display_graph import display_graph
 
 # Define tools
 def product_info(product_name: str) -> str:
@@ -36,6 +37,9 @@ for message in messages["messages"]:
 # User input: repeated inquiry (memory recall)
 inputs2 = {"messages": [("user", "Tell me more about the iPhone 20.")]}
 messages2 = graph.invoke(inputs2, config=config)
+
+# Visualize the graph
+display_graph(graph)
 
 for message in messages2['messages']:
     message.pretty_print()
