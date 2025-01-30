@@ -12,3 +12,5 @@ llm/agent/projects/audio/moana2
 llm/agent/projects/audio/empeachment
 llm/agent/projects/audio/helmit_crap
 llm/agent/projects/code_agent/chroma_db
+llm/langgraph/langgraph_blueprint/ch17/langgrpah-agent-backend
+llm/langgraph/langgraph_blueprint/ch17
