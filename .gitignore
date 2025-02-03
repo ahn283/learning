@@ -16,3 +16,4 @@ llm/langgraph/langgraph_blueprint/ch17/langgrpah-agent-backend
 llm/langgraph/langgraph_blueprint/ch17
 llm/langgraph/agent
 llm/langgraph/data
+llm/langgraph/example.db
