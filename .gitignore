@@ -17,3 +17,4 @@ llm/langgraph/langgraph_blueprint/ch17
 llm/langgraph/agent
 llm/langgraph/data
 llm/langgraph/example.db
+llm/langgraph/Chinook.db
